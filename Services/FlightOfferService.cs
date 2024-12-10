@@ -34,8 +34,10 @@ namespace FlightSearch.Services
                 _client.BaseAddress = new Uri(url);
                 _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", acces_token.ToString());
+                Console.WriteLine(_client.BaseAddress.ToString() + parameters);
+                Console.WriteLine(_client.ToString());
                 HttpResponseMessage response = _client.GetAsync(parameters).GetAwaiter().GetResult();
-
+                Console.WriteLine(response.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonString =  response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
