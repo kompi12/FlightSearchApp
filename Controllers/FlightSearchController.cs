@@ -23,16 +23,14 @@ namespace FlightSearch.Controllers
         [HttpPost(Name = "GetFlightsearch")]
         public async Task<IActionResult> SearchFlights([FromBody] FlightSearchRequest request) {
 
-            Console.WriteLine("as");
             if (request == null)
             {
                 return BadRequest("Invalid request data.");
             }
-            Console.WriteLine("Im here");
 
             var _flightOfferService = new FlightOfferService();
 
-            var flightOffers =  _flightOfferService.Get5Recipies(request.originLocationCode,
+            var flightOffers =  _flightOfferService.GetFlightResponse(request.originLocationCode,
                 request.destinationLocationCode,
                 request.departureDate,
                 request.returnDate,
