@@ -21,16 +21,20 @@ namespace FlightSearch.Controllers
         // Dependency Injection to inject the FlightOfferService
 
         [HttpPost(Name = "GetFlightsearch")]
-        public async Task<IActionResult> SearchFlights([FromBody] FlightSearchRequest request) {
+        public async Task<IActionResult> SearchFlights([FromBody] FlightSearchRequest request)
+        {
 
             if (request == null)
             {
                 return BadRequest("Invalid request data.");
             }
 
+            var airportService = new AirportDataService();
+       //     airportService.GetAirportData();
+
             var _flightOfferService = new FlightOfferService();
 
-            var flightOffers =  _flightOfferService.GetFlightResponse(request.originLocationCode,
+            var flightOffers = _flightOfferService.GetFlightResponse(request.originLocationCode,
                 request.destinationLocationCode,
                 request.departureDate,
                 request.returnDate,
@@ -44,5 +48,8 @@ namespace FlightSearch.Controllers
 
 
         }
+
+
+
     }
 }
