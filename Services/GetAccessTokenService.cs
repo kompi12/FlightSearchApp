@@ -20,7 +20,7 @@ namespace FlightSearch.Services
             {
                 var request = new HttpRequestMessage(HttpMethod.Post, _tokenUrl);
                 var collection = new List<KeyValuePair<string, string>>();
-                collection.Add(new("client_id", "a2SKI3DGmRpjkPxeZe7v0OQoxGPx6myY"));
+                collection.Add(new("client_id", "a2SKI3DGmRpjkPxeZe7v0OQoxG"));
                 collection.Add(new("client_secret", "1afckTkGtBBxGdFB"));
                 collection.Add(new("grant_type", "client_credentials"));
                 var content = new FormUrlEncodedContent(collection);
